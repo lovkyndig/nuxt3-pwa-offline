@@ -2,8 +2,6 @@
 import { ref } from 'vue'
 import type { NavItem } from '@nuxt/content/dist/runtime/types'
 import pkg from '../package.json'
-// @ts-ignore
-// import IconComponent from '../../assets/icons/custom/front-page.svg?component' // <svgo-custom-front-page
 
 const appConfig = useAppConfig()
 
@@ -157,7 +155,7 @@ const getFileTypeIcon = (type:string) => {
 }
 
 // added in create-google-app v1.0.0 beta 10 (30.09.2023)
-const { $webnoti } = useNuxtApp()
+// const { $webnoti } = useNuxtApp()
 /*
 onMounted(() => {
   // @ts-ignore
@@ -217,7 +215,8 @@ useSeoMeta({
               <h1 class="py-4 text-3xl sm:text-5xl font-bold text-center text-purple-500">
                 {{ appConfig.myLayer.seoMeta.home.title }}
               </h1>
-              <svgo-custom-front-page alt="Frontpage svg-text" />
+              <!-- <svgo-custom-front-page /> -->
+              <img src="/svg/front-page.svg" alt="Front-page svg-text">
               <div class="grid place-items-center text-purple-700">
                 <p class="mt-8">
                   No content here!

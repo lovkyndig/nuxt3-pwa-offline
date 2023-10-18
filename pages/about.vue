@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const runtime = useRuntimeConfig()
 const appConfig = useAppConfig()
 /*
 onMounted(() => {
@@ -25,10 +24,10 @@ useSeoMeta({
         <template #not-found>
           <div class="about-me-content-container">
             <h1 style="display: none">
-              About {{ runtime.site.title }}
+              {{ appConfig.myLayer.seoMeta.about.title }}
             </h1>
-            <svgo-custom-text-logo alt="About logo-text" class="svg logo" />
-            <svgo-custom-not-found alt="Frontpage svg-text" class="svg content" />
+            <img src="/svg/text-logo.svg" alt="About text-logo" class="svg logo">
+            <img src="/svg/about-not-found.svg" alt="About-md-file not-found" class="svg content">
             <p class="max-w-prose mx-auto p-4">
               Go to the <b>
                 <a

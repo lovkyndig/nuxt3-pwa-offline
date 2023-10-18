@@ -93,63 +93,32 @@ export default defineNuxtConfig({
     { path: './components' }
     // https://nuxt.com/docs/guide/directory-structure/components
   ],
-  svgo: {
-    // https://nuxt.com/docs/guide/going-further/layers#relative-paths-and-aliases
-    // autoImportPath: join(currentDir, './assets/icons/')
-    // svgoConfig: {}
-  },
-  // vite: { plugins: [ /* VitePWA({ }) // testing between pwa: { * } and VitePWA({ * }) */ ]}
   pwa: {
     manifest: false, // public/manifest.webmanifest
     strategies: 'generateSW',
-    injectRegister: 'script',
+    injectRegister: 'auto',
     registerType: 'autoUpdate',
-    useCredentials: true,
-    // https://developer.chrome.com/docs/workbox/reference/workbox-build/#type-GlobPartial
     workbox: {
-      // skipWaiting: true,
-      // clientsClaim: true,
-      // maximumFileSizeToCacheInBytes: 5000000,
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,png,PNG,svg}'],
-      // globIgnores: ['google*.html'],
-      // cleanupOutdatedCaches: true,
+      navigateFallbackDenylist: [/^\/api$/],
       runtimeCaching: [
         {
-        // urlPattern: /^https:\/\/kirkepostille.vercel\.app\/.*/i, // not working
           urlPattern: ({ url }) => { return url.pathname.startsWith('/api') },
           handler: 'CacheFirst' as const,
           options: {
             cacheName: 'api-cache',
             cacheableResponse: {
               statuses: [0, 200]
-            } /*
-            expiration: {
-              maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-            } */
+            }
           }
         }
-        // { // source: https://vite-pwa-org.netlify.app/workbox/generate-sw.html
-        //   handler: 'NetworkOnly',
-        //   urlPattern: /\/api\/.*\/*.json/,
-        //   method: 'POST',
-        //   options: {
-        //     backgroundSync: {
-        //       name: 'backgroundsync',
-        //       options: {
-        //         maxRetentionTime: 24 * 60
-        //       }
-        //     }
-        //   }
-        // }
       ]
     },
-    /*
     client: {
       installPrompt: true,
-      periodicSyncForUpdates: 60 // per 5 min for testing only
-    }, */
-    // registerWebManifestInRouteRules: true,
+      periodicSyncForUpdates: 300 // per 5 min for testing only
+    },
     devOptions: {
       enabled: true,
       navigateFallback: '/',
