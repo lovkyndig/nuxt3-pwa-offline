@@ -1,6 +1,6 @@
 {
-  "name": "create-google-app",
-  "version": "1.0.0-rc.46",
+  "name": "nuxt3-pwa-offline",
+  "version": "1.0.1",
   "type": "module",
   "main": "./nuxt.config.ts",
   "description": "⚡Nuxt layer with nuxt-content, full search-functionality, pwa and guide to how to publish to Google Play Store.",
