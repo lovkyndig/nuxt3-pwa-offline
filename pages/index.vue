@@ -215,7 +215,6 @@ useSeoMeta({
               <h1 class="py-4 text-3xl sm:text-5xl font-bold text-center text-purple-500">
                 {{ appConfig.myLayer.seoMeta.home.title }}
               </h1>
-              <!-- <svgo-custom-front-page /> -->
               <img src="/svg/front-page.svg" alt="Front-page svg-text">
               <div class="grid place-items-center text-purple-700">
                 <p class="mt-8">
