@@ -100,8 +100,8 @@ export default defineNuxtConfig({
     registerType: 'autoUpdate',
     workbox: {
       navigateFallback: '/',
-      globPatterns: ['**/*.{js,css,html,png,PNG,svg}'],
-      navigateFallbackDenylist: [/\/api*/],
+      globPatterns: ['**/*.{js,css,html,json}', '**/_payload.json'],
+      // navigateFallbackDenylist: [/\/api/],
       runtimeCaching: [
         {
           urlPattern: ({ url }) => { return url.pathname.startsWith('/api') },
@@ -126,3 +126,12 @@ export default defineNuxtConfig({
     }
   }
 })
+
+/*
+Regex source:
+https://developer.chrome.com/docs/workbox/reference/workbox-webpack-plugin/
+https://regexone.com/
+https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285
+https://stackoverflow.com/questions/16657152/matching-a-forward-slash-with-a-regex
+
+*/

@@ -1,6 +1,6 @@
 {
   "name": "nuxt3-pwa-offline",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "type": "module",
   "main": "./nuxt.config.ts",
   "description": "⚡Nuxt layer with nuxt-content, full search-functionality, pwa and guide to how to publish to Google Play Store.",
