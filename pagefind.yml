@@ -1,0 +1,14 @@
+site: .output/public
+output_path: public/_pagefind
+# Generate-instruction:
+# Remove the .playground from generate (in package.json)
+# Example: 
+# Old: "generate": "nuxt generate .playground", 
+# New: "generate": "nuxt generate"
+# Then run: yarn generate.
+# After generate; build the pagefind-bundle with:
+# yarn pagefind
+# 
+# IN TEMPLATE
+# Run this command to build the pagefind-bundle (from template-dir):
+# npx -y pagefind --site .output/public --output-path public/_pagefind

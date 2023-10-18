@@ -1,0 +1,20 @@
+/* https://web.dev/learn/html/details/ */
+/* top right bottom left */
+
+/* style for accordions added october 2023 */
+details {
+  width: 100%;
+  border-bottom: 1px inset;
+  border-color: #a855f7;
+} 
+summary {
+  cursor: pointer;
+}
+
+.summary:hover {
+  background-color: #e9d5ff;
+}
+
+details[open] > summary {
+  background-color: #f3e8ff;
+}

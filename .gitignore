@@ -1,0 +1,25 @@
+# Standard
+node_modules
+*.log*
+.env
+
+# dev, build and generate
+.nuxt
+.output
+dist
+
+# Playground
+.playground/.nuxt
+.playground/.output
+.playground/dist
+
+# Yarn
+yarn.lock
+.yarn/cache
+.yarn/*state*
+
+# Local History
+.history
+
+# VSCode
+.vscode/

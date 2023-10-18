@@ -1,0 +1,23 @@
+{
+  // "./.nuxt/tsconfig.json" OR "./.playground/.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json", 
+  "compilerOptions": {
+    "strict": false,
+    // "types": [ // "vite-plugin-pwa/client" ],
+    "allowJs": true // TreeCatalog.vue has js-code
+    // "ignoreDeprecations": "5.0",
+    // "suppressImplicitAnyIndexErrors": true,
+  },
+  "vueCompilerOptions": {
+    // "skipTemplateCodegen": true
+  }
+}
+/* Sources:
+https://github.com/vuejs/language-tools/issues/1544
+https://www.typescriptlang.org/docs/handbook/compiler-options.html
+https://github.com/viandwi24/nuxt3-awesome-starter/blob/v2/tsconfig.json
+https://v3.nuxtjs.org/concepts/typescript
+https://nuxt.com/docs/guide/concepts/typescript#nuxttsconfigjson
+https://www.typescriptlang.org/tsconfig
+https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types
+*/
