@@ -93,6 +93,9 @@ export default defineNuxtConfig({
     { path: './components' }
     // https://nuxt.com/docs/guide/directory-structure/components
   ],
+  experimental: {
+    payloadExtraction: false
+  },
   pwa: {
     manifest: false, // public/manifest.webmanifest
     strategies: 'generateSW',
