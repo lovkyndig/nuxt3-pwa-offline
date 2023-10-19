@@ -100,10 +100,11 @@ export default defineNuxtConfig({
     strategies: 'generateSW',
     injectRegister: 'auto',
     registerType: 'autoUpdate',
+    includeAssets: ['avatar.svg', 'privacy.txt'],
     workbox: {
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html}'],
-      // https://vite-pwa-org.netlify.app/workbox/generate-sw.html#exclude-routes
+      // globIgnores: ['google*.html'],
       navigateFallbackDenylist: [/^\/api/],
       runtimeCaching: [
         {
@@ -118,7 +119,7 @@ export default defineNuxtConfig({
     },
     client: {
       installPrompt: true,
-      periodicSyncForUpdates: 300 // per 5 min for testing only
+      periodicSyncForUpdates: 3600 // 360 for testing only
     },
     devOptions: {
       enabled: true,
@@ -137,5 +138,4 @@ https://developer.chrome.com/docs/workbox/reference/workbox-webpack-plugin/
 https://regexone.com/
 https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285
 https://stackoverflow.com/questions/16657152/matching-a-forward-slash-with-a-regex
-
 */
