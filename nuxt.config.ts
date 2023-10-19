@@ -101,11 +101,11 @@ export default defineNuxtConfig({
     workbox: {
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,json}'],
-      // navigateFallbackDenylist: [/\/api/],
-      cleanupOutdatedCaches: true,
+      // https://vite-pwa-org.netlify.app/workbox/generate-sw.html#exclude-routes
+      navigateFallbackDenylist: [/^\/api/],
       runtimeCaching: [
         {
-          urlPattern: /\/api\/.*\/*.json/,
+          urlPattern: ({ url }) => { return url.pathname.startsWith('/api') },
           handler: 'CacheFirst' as const,
           options: {
             cacheName: 'api-cache',
