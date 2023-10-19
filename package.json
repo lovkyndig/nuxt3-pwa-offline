@@ -1,9 +1,9 @@
 {
   "name": "nuxt3-pwa-offline",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "main": "./nuxt.config.ts",
-  "description": "⚡Nuxt layer with nuxt-content, full search-functionality, pwa and guide to how to publish to Google Play Store.",
+  "description": "⚡This is only a copy of my template 'Create Google App'. Verifified that it's working in offline-modus.",
   "homepage": "https://nuxt3-pwa-offline.vercel.app",
   "author": "Kyrie Eleison <jur.eleison@gmail.com> (https://github.com/lovkyndig)",
   "repository": {
