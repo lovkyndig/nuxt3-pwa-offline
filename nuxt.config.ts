@@ -105,16 +105,11 @@ export default defineNuxtConfig({
       cleanupOutdatedCaches: true,
       runtimeCaching: [
         {
-          handler: 'NetworkOnly',
           urlPattern: /\/api\/.*\/*.json/,
-          method: 'POST',
+          handler: 'CacheFirst' as const,
           options: {
-            backgroundSync: {
-              name: 'backgroundsync',
-              options: {
-                maxRetentionTime: 24 * 60
-              }
-            }
+            cacheName: 'api-cache',
+            cacheableResponse: { statuses: [0, 200] }
           }
         }
       ]
