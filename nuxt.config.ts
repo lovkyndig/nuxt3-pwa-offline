@@ -93,7 +93,7 @@ export default defineNuxtConfig({
     // https://nuxt.com/docs/guide/directory-structure/components
   ],
   experimental: {
-    // payloadExtraction: false
+    payloadExtraction: false // get the api-cache loads/working
   },
   pwa: {
     manifest: false, // public/manifest.webmanifest
@@ -102,7 +102,7 @@ export default defineNuxtConfig({
     registerType: 'autoUpdate',
     workbox: {
       navigateFallback: '/',
-      globPatterns: ['**/*.{js,css,html,json}'],
+      globPatterns: ['**/*.{js,css,html}'],
       // https://vite-pwa-org.netlify.app/workbox/generate-sw.html#exclude-routes
       navigateFallbackDenylist: [/^\/api/],
       runtimeCaching: [
@@ -130,6 +130,7 @@ export default defineNuxtConfig({
 
 /*
 work-box-source:
+https://github.com/vite-pwa/nuxt/issues/76
 https://vite-pwa-org.netlify.app/workbox/generate-sw.html
 Regex source:
 https://developer.chrome.com/docs/workbox/reference/workbox-webpack-plugin/
