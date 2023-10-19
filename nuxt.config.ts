@@ -6,7 +6,7 @@ import pkg from './package.json'
 
 const { resolve } = createResolver(import.meta.url)
 
-// const currentDir = dirname(fileURLToPath(import.meta.url))
+const currentDir = dirname(fileURLToPath(import.meta.url))
 // https://nuxt.com/docs/guide/going-further/layers#relative-paths-and-aliases
 
 // grepper capitalize first letter in all words in a string, separeted with space ' ' or hyphen '-' (like name in package.json)
@@ -21,11 +21,10 @@ const capitalize = (string) => {
 // end grepper
 
 export default defineNuxtConfig({
-  // devtools: { enabled: false },
+  devtools: { enabled: false },
   app: { /* baseURL: '/' */ },
   css: [
-    'assets/style.css'
-    // join(currentDir, './assets/style.css')
+    join(currentDir, './assets/style.css')
   ],
   modules: [
     [resolve('./modules/copy-files-module'), { cleanFolders: ['public/article'] }],
@@ -94,7 +93,7 @@ export default defineNuxtConfig({
     // https://nuxt.com/docs/guide/directory-structure/components
   ],
   experimental: {
-    payloadExtraction: false
+    // payloadExtraction: false
   },
   pwa: {
     manifest: false, // public/manifest.webmanifest
@@ -123,8 +122,8 @@ export default defineNuxtConfig({
     },
     devOptions: {
       enabled: true,
-      navigateFallback: '/'
-      // navigateFallbackAllowlist: [/^\/$/]
+      navigateFallback: '/',
+      navigateFallbackAllowlist: [/^\/$/]
     }
   }
 })
