@@ -100,16 +100,20 @@ export default defineNuxtConfig({
     registerType: 'autoUpdate',
     workbox: {
       navigateFallback: '/',
-      globPatterns: ['**/*.{js,css,html,json}', '**/_payload.json'],
+      globPatterns: ['**/*.{js,css,html,json}'],
       // navigateFallbackDenylist: [/\/api/],
+      cleanupOutdatedCaches: true,
       runtimeCaching: [
         {
-          urlPattern: ({ url }) => { return url.pathname.startsWith('/api') },
-          handler: 'CacheFirst' as const,
+          handler: 'NetworkOnly',
+          urlPattern: /\/api\/.*\/*.json/,
+          method: 'POST',
           options: {
-            cacheName: 'api-cache',
-            cacheableResponse: {
-              statuses: [0, 200]
+            backgroundSync: {
+              name: 'backgroundsync',
+              options: {
+                maxRetentionTime: 24 * 60
+              }
             }
           }
         }
@@ -121,13 +125,15 @@ export default defineNuxtConfig({
     },
     devOptions: {
       enabled: true,
-      navigateFallback: '/',
-      navigateFallbackAllowlist: [/^\/$/]
+      navigateFallback: '/'
+      // navigateFallbackAllowlist: [/^\/$/]
     }
   }
 })
 
 /*
+work-box-source:
+https://vite-pwa-org.netlify.app/workbox/generate-sw.html
 Regex source:
 https://developer.chrome.com/docs/workbox/reference/workbox-webpack-plugin/
 https://regexone.com/
