@@ -35,7 +35,6 @@
     "d3-shape": "^3.2.0",
     "d3-zoom": "^3.0.0",
     "feed": "4.2.2",
-    "giscus": "1.5.0",
     "mermaid": "<10.0.0",
     "rehype-katex": "^7.0.0",
     "remark-math": "<6.0.0",
